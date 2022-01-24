@@ -1,0 +1,50 @@
+<div fxLayout fxLayoutAlign="end">
+    <button mat-button class="close-icon" [mat-dialog-close]="true">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+
+<mat-dialog-content>
+    <div fxLayout="row" fxLayoutGap="30px">
+        <div class="details" fxFlex="60">
+            <h4>{{details?.key}}</h4>
+            <h5>Description</h5>
+
+            <p>
+                {{details.fields?.description ? details.fields?.description : 'No Description Available'}}
+            </p>
+            <mat-divider></mat-divider>
+            <h5>Summary</h5>
+            <p>{{details.fields?.summary ? details.fields?.summary : 'No Data'}}</p>
+            <mat-divider></mat-divider>
+
+            <h5>Label</h5>
+            <mat-chip-list class="chip">
+                <mat-chip class="chip-box" *ngFor="let label of details.fields?.labels">
+                    {{label}}
+                </mat-chip>
+            </mat-chip-list>
+            <!-- <mat-divider></mat-divider> -->
+
+        </div>
+
+
+        <div fxFlex>
+            <h5>Original Estimate (hours)</h5>
+            <p class="original-estimate">{{originalEstimateTime}}</p>
+            <mat-divider></mat-divider>
+            <h5 class="mb-0">REPORTER</h5>
+            <div class="reporter">
+                <div class="parent">
+                    <img src="{{imgUrl}}" alt="" class="avatar" size="24">
+                    <div class="name">{{details.fields?.reporter?.displayName}}</div>
+                </div>
+            </div>
+
+
+            <p>Created at : {{details.fields?.created | daysago}}</p>
+            <p>Udated at : {{details.fields?.updated | daysago}}</p>
+
+        </div>
+    </div>
+</mat-dialog-content>

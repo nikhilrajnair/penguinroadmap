@@ -1,0 +1,54 @@
+// ::ng-deep.cdk-overlay-pane {
+//     position: absolute !important;
+//     right: 0;
+//     bottom: 0;
+//     border-radius: 0;
+//     height: 50%;
+// }
+.chip {
+    display: block;
+    margin-bottom: 15px;
+}
+
+.reporter {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    margin: 0px 10px 0px 0px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    background: rgb(235, 236, 240);
+    transition: all 0.1s ease 0s;
+    .parent {
+        padding: 4px 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+            margin-right: 15px;
+        }
+    }
+    .avatar {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        border-radius: 100%;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: rgb(235, 236, 240);
+    }
+}
+
+.original-estimate {
+    padding: 8px;
+    border-radius: 3px;
+    border: 1px solid rgb(223, 225, 230);
+    color: rgb(23, 43, 77);
+    background: rgb(244, 245, 247);
+    transition: all 0.1s ease 0s;
+    font-weight: normal;
+    font-size: 15px;
+}

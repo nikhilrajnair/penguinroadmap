@@ -1,0 +1,14 @@
+mat-list {
+    margin-bottom: 15px;
+    mat-list-item {
+        &:hover,
+        &.active {
+            color: rgb(0, 82, 204);
+            background: rgb(235, 236, 240);
+            border-radius: 4px;
+        }
+    }
+    .material-icons-outlined {
+        margin-right: 15px;
+    }
+}

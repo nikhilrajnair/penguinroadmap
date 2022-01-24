@@ -1,0 +1,42 @@
+<div class="container p-5">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- header row-->
+            <div class="d-flex">
+                <div class="title">
+                    <h4>{{roadmapLabel}}</h4>
+                </div>
+                <div class="parent">
+                    <div class="row-axis">
+                        <div class="row-title">
+                            <!-- Activities -->
+                        </div>
+                        <div class="month-axis">
+                            <span class="month" *ngFor="let month of monthAxis" [style.width]="month.monthDurationPercentage + '%'">
+                                {{month.monthName | date:'MMMM'}}</span>
+                        </div>
+                    </div>
+                    <div class="gantt-chart-row" *ngFor="let item of filteredData; let i = index">
+                        <div class="row-title">
+                            &nbsp;
+                            <!-- {{roadmapLabel}} -->
+                        </div>
+                        <div class="row-events">
+
+                            <div class="event-period tooltip" (click)="viewDetails(filteredData[i])" [style.margin-left]="getEventOffsetPercentage(item?.fields.timeoriginalestimate,item?.fields.duedate)+'%'" [style.width]="getEventDurationPercentage(item?.fields.timeoriginalestimate,item?.fields.duedate) + '%'"
+                                [style.background]="getColour(i)">
+                                <span class="event-name">{{item?.key}}</span>
+                                <div class="tooltip-text">
+                                    <div><strong>{{item.fields?.summary}}: </strong></div>
+                                </div>
+                            </div>
+                            <div class="grid-lines">
+                                <span class="grid-line" *ngFor="let month of monthAxis" [style.width]="month.monthDurationPercentage + '%'"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
