@@ -137,6 +137,12 @@ $alternate-row-background-color: #fafafa;
     }
 }
 
+.parent {
+    @media (max-width: 786px) {
+        margin-left: -10rem;
+    }
+}
+
 .d-flex {
     display: flex;
     justify-content: space-between;
@@ -153,5 +159,8 @@ $alternate-row-background-color: #fafafa;
         display: flex;
         align-items: center;
         justify-content: center;
+        @media (max-width: 786px) {
+            width: 6.5rem;
+        }
     }
 }

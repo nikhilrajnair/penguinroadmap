@@ -1,11 +1,19 @@
-<div fxLayout fxLayoutAlign="end">
+<div fxLayout fxLayoutAlign="space-between">
+    <div class="story-type">
+        <div class="reporter">
+            <div class="parent">
+                <img src="{{storyTypeIcon}}" alt="" class="avatar" size="24">
+                <div class="name">{{details?.fields?.issuetype?.name}}</div>
+            </div>
+        </div>
+    </div>
     <button mat-button class="close-icon" [mat-dialog-close]="true">
         <mat-icon>close</mat-icon>
     </button>
 </div>
 
 <mat-dialog-content>
-    <div fxLayout="row" fxLayoutGap="30px">
+    <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="30px">
         <div class="details" fxFlex="60">
             <h4>{{details?.key}}</h4>
             <h5>Description</h5>
@@ -40,7 +48,13 @@
                     <div class="name">{{details.fields?.reporter?.displayName}}</div>
                 </div>
             </div>
-
+            <h5>Priority</h5>
+            <div class="reporter">
+                <div class="parent">
+                    <img src="{{priorityIcon}}" alt="" class="avatar" size="24">
+                    <div class="name">{{details?.fields?.priority?.name}}</div>
+                </div>
+            </div>
 
             <p>Created at : {{details.fields?.created | daysago}}</p>
             <p>Udated at : {{details.fields?.updated | daysago}}</p>
