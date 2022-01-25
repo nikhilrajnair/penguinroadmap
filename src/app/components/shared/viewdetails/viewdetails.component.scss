@@ -42,6 +42,14 @@
     }
 }
 
+.priority {
+    margin-bottom: 15px;
+}
+
+.date-data {
+    margin-top: 15px;
+}
+
 .original-estimate {
     padding: 8px;
     border-radius: 3px;
@@ -51,4 +59,12 @@
     transition: all 0.1s ease 0s;
     font-weight: normal;
     font-size: 15px;
+}
+
+.date-data {
+    p {
+        font-size: 13px;
+        color: rgb(94, 108, 132);
+        margin: 0;
+    }
 }
