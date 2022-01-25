@@ -1,13 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatChipsModule } from '@angular/material/chips';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatToolbarModule } from '@angular/material/toolbar';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -21,6 +14,7 @@ import { DataserviceService } from './service/dataservice/dataservice.service';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { DaysagoPipe } from './shared/pipes/daysago.pipe';
+import { MaterialModule } from './shared/modules/material.module';
 
 
 @NgModule({
@@ -39,14 +33,7 @@ import { DaysagoPipe } from './shared/pipes/daysago.pipe';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatButtonModule,
-    MatIconModule,
-    MatDividerModule,
-    MatListModule,
-    MatDialogModule,
-    MatChipsModule,
+    MaterialModule,
     FlexLayoutModule
   ],
   providers: [DataserviceService],
