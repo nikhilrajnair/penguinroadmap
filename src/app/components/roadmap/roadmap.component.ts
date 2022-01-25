@@ -19,9 +19,9 @@ export class RoadmapComponent implements OnInit {
   temp: any;
   filteredData: any;
   chartPeriodDays: number;
-  roadmapLabel: any;
+  roadmapLabel: string = 'Roadmap';
   monthAxis: MonthAxis[];
-  colourPallete = ['#7C4DFF', '#81c784', '#e53935', '#FF8A80', '#303F9F', '#40C4FF', '#006064', '#FF8A65','#64b5f6'];
+  colourPallete = ['#7C4DFF', '#81c784', '#e53935', '#FF8A80', '#303F9F', '#40C4FF', '#006064', '#FF8A65', '#64b5f6'];
 
   @Input() startDate: Date = new Date('2019-01-01');
   @Input() endDate: Date = new Date('2019-12-30');
@@ -31,7 +31,7 @@ export class RoadmapComponent implements OnInit {
     this.getDataList();
   }
 
-  viewDetails(filteredData:any){
+  viewDetails(filteredData: any) {
     const dialogRef = this.dialog.open(ViewdetailsComponent, {
       width: '800px',
       data: filteredData,
@@ -39,7 +39,6 @@ export class RoadmapComponent implements OnInit {
 
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
     });
   }
 
@@ -47,12 +46,11 @@ export class RoadmapComponent implements OnInit {
     this.dataservice.getJSON().subscribe(data => {
       this.value = data;
       this.temp = this.value.issues;
-      this.roadmapLabel = "Roadmap";
       this.filteredData = this.temp.filter((data: any) => {
         if (data.fields) {
-          for (let abc of data.fields.labels) {
-            if (abc == this.roadmapLabel) {
-              return abc
+          for (let filteredLabels of data.fields.labels) {
+            if (filteredLabels == this.roadmapLabel) {
+              return filteredLabels
             }
           }
         }
@@ -62,11 +60,11 @@ export class RoadmapComponent implements OnInit {
   }
 
 
-  constructor(private dataservice: DataserviceService,public dialog: MatDialog) {
+  constructor(private dataservice: DataserviceService, public dialog: MatDialog) {
     this.chartPeriodDays = DatehelperService.dateDifference(this.endDate, this.startDate, true);
     this.monthAxis = this.getMonths(this.startDate, this.endDate);
-    
-   
+
+
   }
 
 
@@ -82,7 +80,6 @@ export class RoadmapComponent implements OnInit {
     endDate = new Date(endDate);
     startDate = new Date(startDate);
     const _MS_PER_DAY = 1000 * 60 * 60 * 24;
-    // Discard the time and time-zone information.
     const utc1 = Date.UTC(endDate.getFullYear(), endDate.getMonth(), endDate.getDate());
     const utc2 = Date.UTC(startDate.getFullYear(), startDate.getMonth(), startDate.getDate());
     return Math.abs(Math.floor((utc2 - utc1) / _MS_PER_DAY)) + (inlusiveOfEndDate ? 2 : 1);
@@ -111,8 +108,6 @@ export class RoadmapComponent implements OnInit {
     const daysPriorToEventStart = DatehelperService.dateDifference(new Date(startDateValue), this.startDate);
     return ((daysPriorToEventStart - 1) / this.chartPeriodDays) * 100;
   }
-
-
 
 
   getMonths(startDate: Date, endDate: Date): MonthAxis[] {

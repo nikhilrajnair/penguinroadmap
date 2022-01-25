@@ -16,7 +16,6 @@ export class ViewdetailsComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit(): void {
-    console.log(this.data);
     this.details = this.data;
     this.imgUrl = this.details.fields.reporter.avatarUrls["24x24"];
     this.originalEstimateTime = Math.floor(this.details.fields.timetracking.originalEstimateSeconds / 3600);
