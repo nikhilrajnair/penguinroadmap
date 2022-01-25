@@ -33,7 +33,7 @@ export class RoadmapComponent implements OnInit {
 
   viewDetails(filteredData:any){
     const dialogRef = this.dialog.open(ViewdetailsComponent, {
-      width: '700px',
+      width: '800px',
       data: filteredData,
       autoFocus: false
 
